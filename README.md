@@ -8,7 +8,9 @@ An MCP with 51 tools costs ~9K tokens of context — permanently. That's context
 
 ## The Solution
 
-Extract the API logic into a CLI. Ship with a skill file. Remove the MCP.
+Extract the API logic into a CLI. Ship with a skill file. Remove the giant MCP.
+
+MCP can remain as a tiny shim when a host needs one, but its job is to point at the CLI, not to model the whole tool universe. The CLI provides progressive reveal of the deeper graph.
 
 ```
 Before: 51 MCP tools → ~9,000 tokens/session
@@ -31,6 +33,7 @@ After:  5 CLI commands + skill → ~200 tokens/session
 - Fast failure with actionable errors
 - `--dry-run` for destructive ops
 - `--help` is the schema
+- `status`, `doctor`, `list`, `find`, and `ask` commands reveal deeper domains without loading every tool up front
 
 ## License
 
